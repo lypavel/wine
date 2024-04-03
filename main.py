@@ -23,7 +23,7 @@ def get_age_pronunciation(age: int) -> str:
     return "лет"
 
 
-def load_wines_from_xlsx(file_path: Path) -> dict:
+def load_drinks_from_xlsx(file_path: Path) -> dict:
     return read_excel(
         file_path
     ).fillna('').to_dict(orient='records')
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     template = env.get_template('template.html')
 
-    drinks = load_wines_from_xlsx(DRINKS_FILE_PATH)
+    drinks = load_drinks_from_xlsx(DRINKS_FILE_PATH)
     drink_categories = group_drinks_by_category(drinks)
     shop_age = calculate_shop_age()
 
