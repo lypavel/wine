@@ -40,7 +40,7 @@ def group_drinks_by_category(drinks: list) -> defaultdict:
 if __name__ == "__main__":
     env_variables = Env()
     env_variables.read_env()
-    DRINKS_FILE_PATH = Path(env_variables.str('XLSX_FILE'))
+    drinks_file_path = Path(env_variables.str('XLSX_FILE'))
 
     env = Environment(
         loader=FileSystemLoader('.'),
@@ -49,7 +49,7 @@ if __name__ == "__main__":
 
     template = env.get_template('template.html')
 
-    drinks = load_drinks_from_xlsx(DRINKS_FILE_PATH)
+    drinks = load_drinks_from_xlsx(drinks_file_path)
     drink_categories = group_drinks_by_category(drinks)
     shop_age = calculate_shop_age()
 
